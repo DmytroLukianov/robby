@@ -1,0 +1,1 @@
+class RobbyError < StandardError; end
