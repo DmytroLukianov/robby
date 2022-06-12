@@ -1,5 +1,3 @@
-class InvalidDirectionError < RobbyError
-  def initialize(direction)
-    super("Invalid direction: #{direction}")
-  end
-end
+require_relative "./robby_error"
+
+class InvalidDirectionError < RobbyError; end

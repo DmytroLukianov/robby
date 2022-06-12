@@ -1,3 +1,6 @@
+require_relative "../errors/invalid_coordinates_error"
+require_relative "../errors/invalid_direction_error"
+
 class Robot
 
   DIRECTIONS = {
@@ -36,27 +39,27 @@ class Robot
 
   def next_x
     case direction
-    when DIRECTIONS["WEST"], DIRECTIONS["EAST"]
+    when DIRECTIONS["NORTH"], DIRECTIONS["SOUTH"]
       x
-    when DIRECTIONS["NORTH"]
+    when DIRECTIONS["EAST"]
       x + 1
-    when DIRECTIONS["SOUTH"]
+    when DIRECTIONS["WEST"]
       x - 1
     else
-      raise "Unnknown direction"
+      raise InvalidDirectionError, "Unnknown direction '#{direction}' for next X coordinate"
     end
   end
 
   def next_y
     case direction
-    when DIRECTIONS["NORTH"], DIRECTIONS["SOUTH"]
+    when DIRECTIONS["WEST"], DIRECTIONS["EAST"]
       y
-    when DIRECTIONS["WEST"]
-      y - 1
-    when DIRECTIONS["EAST"]
+    when DIRECTIONS["NORTH"]
       y + 1
+    when DIRECTIONS["SOUTH"]
+      y - 1
     else
-      raise "Unnknown direction"
+      raise InvalidDirectionError, "Unnknown direction '#{direction}' for next Y coordinate"
     end
   end
 
@@ -64,34 +67,17 @@ class Robot
     DIRECTIONS.key(direction)
   end
 
-  # def next_step_coordinates
-  #   case direction
-  #   when DIRECTIONS["WEST"]
-  #     { x: x, y: (y - 1) }
-  #   when DIRECTIONS["NORTH"]
-  #     { x: (x - 1), y: y }
-  #   when DIRECTIONS["EAST"]
-  #     { x: x, y: (y + 1) }
-  #   when DIRECTIONS["SOUTH"]
-  #     { x: (x + 1), y: y }
-  #   else
-  #     raise "Unnknown direction"
-  #   end
-  # end
-
   private
 
   def validate_direction(new_direction)
     return if DIRECTIONS.keys.include?(new_direction)
 
-    # TODO: add custom error
-    raise "Invalid direction"
+    raise InvalidDirectionError, "Invalid direction: #{new_direction}"
   end
 
   def validate_coordinates(x, y)
     return if x.is_a?(Integer) && y.is_a?(Integer)
 
-    # TODO: add custom error
-    raise "Invalid coordinates type"
+    raise InvalidCoordinatesError, "Invalid coordinates type"
   end
 end

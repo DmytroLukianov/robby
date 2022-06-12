@@ -1,4 +1,3 @@
-require "amazing_print"
 require_relative "../../operation"
 
 DIRECTION_SIGNS = {
@@ -13,12 +12,12 @@ module Commands
     def call(field:, robot:)
       puts "Position: #{robot.x},#{robot.y},#{robot.readable_direction}, #{robot.direction}°"
 
-      str_field = field.cells.reverse.map.with_index do |row, ix|
-        row.map.with_index do |i, jx|
+      str_field = field.cells.reverse.map do |row|
+        row.map do |i|
           if i.nil?
-            "#{ix}-#{jx}"
+            "-"
           elsif i == robot
-            "o#{DIRECTION_SIGNS[robot.readable_direction]}o"
+            DIRECTION_SIGNS[robot.readable_direction]
           else
             "X"
           end
