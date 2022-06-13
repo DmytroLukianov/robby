@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../../operation"
 
 DIRECTION_SIGNS = {
@@ -9,10 +11,11 @@ DIRECTION_SIGNS = {
 
 module Commands
   class DebugReport < Operation
-    def call(field:, robot:)
+
+    def call(table:, robot:)
       puts "Position: #{robot.x},#{robot.y},#{robot.readable_direction}, #{robot.direction}°"
 
-      str_field = field.cells.reverse.map do |row|
+      str_table = table.cells.reverse.map do |row|
         row.map do |i|
           if i.nil?
             "-"
@@ -24,7 +27,8 @@ module Commands
         end.join(" ")
       end.join("\n")
 
-      puts str_field
+      puts str_table
     end
+
   end
 end

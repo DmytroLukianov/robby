@@ -1,0 +1,68 @@
+AllCops:
+  TargetRubyVersion: 3.0.3
+  NewCops: enable
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 160
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 50
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Exclude:
+    - spec/**/*
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Naming/MethodParameterName:
+  Enabled: true
+  MinNameLength: 1

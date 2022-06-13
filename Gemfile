@@ -1,7 +1,9 @@
-ruby '3.0.3'
+# frozen_string_literal: true
 
-source 'https://rubygems.org'
+ruby "3.0.3"
 
-gem 'rspec', '~> 3.5.0'
-gem 'rubocop', '~> 1.30', require: false
-gem 'pry', '~> 0.13.1'
+source "https://rubygems.org"
+
+gem "pry", "~> 0.13.1"
+gem "rspec", "~> 3.5.0"
+gem "rubocop", "~> 1.30", require: false
