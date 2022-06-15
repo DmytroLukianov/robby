@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "../operation"
+require_relative "../models/robot"
 
 class CommandsDescriptor < Operation
 

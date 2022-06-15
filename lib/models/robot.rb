@@ -2,6 +2,7 @@
 
 require_relative "../errors/invalid_coordinates_error"
 require_relative "../errors/invalid_direction_error"
+require_relative "../services/validators/direction_validator"
 
 class Robot
 
@@ -17,6 +18,7 @@ class Robot
   def initialize(x: nil, y: nil, direction: nil)
     @x = x
     @y = y
+    Validators::DirectionValidator.call(direction: direction) if direction
     @direction = DIRECTIONS[direction]
   end
 
@@ -26,6 +28,7 @@ class Robot
   end
 
   def update_direction(direction)
+    Validators::DirectionValidator.call(direction: direction)
     @direction = DIRECTIONS[direction]
   end
 
