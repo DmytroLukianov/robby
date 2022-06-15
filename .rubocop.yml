@@ -1,5 +1,7 @@
+require: rubocop-rspec
+
 AllCops:
-  TargetRubyVersion: 3.0.3
+  TargetRubyVersion: 3.0
   NewCops: enable
 
 Style/IfUnlessModifier:
@@ -10,6 +12,13 @@ Layout/MultilineMethodCallBraceLayout:
 
 Style/FrozenStringLiteralComment:
   Enabled: true
+  Exclude:
+    - spec/**/*
+
+Style/BlockComments:
+  Enabled: true
+  Exclude:
+    - spec/**/*
 
 Style/Documentation:
   Enabled: false
@@ -66,3 +75,37 @@ Layout/SpaceInLambdaLiteral:
 Naming/MethodParameterName:
   Enabled: true
   MinNameLength: 1
+
+RSpec/UnspecifiedException:
+  Enabled: true
+  Severity: error
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 9
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/VerifiedDoubles:
+  Enabled: false

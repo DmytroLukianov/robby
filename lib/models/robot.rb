@@ -14,6 +14,12 @@ class Robot
 
   attr_reader :x, :y, :direction
 
+  def initialize(x: nil, y: nil, direction: nil)
+    @x = x
+    @y = y
+    @direction = DIRECTIONS[direction]
+  end
+
   def update_coordinates(x, y)
     @x = x
     @y = y
