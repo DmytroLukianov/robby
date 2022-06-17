@@ -31,8 +31,7 @@ module Validators
         passed_arg = command_args[i] if command_args
         if passed_arg !~ arg_info[:regex]
           error_message =
-            "Ivalid argument ##{i + 1}: #{passed_arg}.\n" +
-            CommandsDescriptor.call(command_name: command_name)
+            "Ivalid arguments.\n#{CommandsDescriptor.call(command_name: command_name)}"
 
           raise InvalidCommandError, error_message
         end
