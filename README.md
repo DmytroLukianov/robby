@@ -6,11 +6,15 @@ Steps to run app:
 
 1) Open project directory
 ```
-cd robby
+cd */**/robby/
 ```
-2) Run robby
+2) Install gems
 ```
-ruby lib/robby.rb
+bundle install
+```
+3) Run robby
+```
+ruby runner.rb
 ```
 
 ## Main commands
